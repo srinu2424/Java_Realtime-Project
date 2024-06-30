@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World with Java Backend</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hello World with Java Backend</h1>
+        <p id="time"></p>
+        <p id="greeting"></p>
+        <img src="/images/hello-world.jpg" alt="Hello World Image">
+    </div>
+    <footer>
+        &copy; 2024 My Java Spring Boot Application
+    </footer>
+
+    <script>
+        async function fetchData() {
+            const timeResponse = await fetch('/time');
+            const timeText = await timeResponse.text();
+            document.getElementById("time").innerText = timeText;
+
+            const greetingResponse = await fetch('/greeting');
+            const greetingText = await greetingResponse.text();
+            document.getElementById("greeting").innerText = greetingText;
+        }
+
+        // Fetch data from backend
+        fetchData();
+    </script>
+</body>
+</html>
